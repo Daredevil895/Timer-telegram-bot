@@ -6,7 +6,7 @@ authors = ["daredevil895 <alex1337boom2@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 aiogram = "^2.25.1"
 asyncio = "^3.4.3"
 python-dotenv = "^1.0.0"
