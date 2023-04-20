@@ -1,10 +1,14 @@
+import os
 import asyncio
-
 from aiogram import Bot, Dispatcher, executor, types
 
-bot = Bot('6072942376:AAHi9pMtzlrAOD_Byv80FOTyPhETk2iwrGc')
+from dotenv import load_dotenv
+
+load_dotenv()
+
+bot = Bot(token=os.getenv('TOKEN'))
 bot_dispatcher = Dispatcher(bot=bot)
-channel_id = -1001929429933
+channel_id = os.getenv('kanal')
 
 
 
