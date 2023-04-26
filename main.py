@@ -34,7 +34,7 @@ async def new_timer_massage(message):
         await asyncio.sleep(10)
 
         if seconds_left < 10:
-            await new_message.edit_text(f"---Твой таймер стоит на :---\n---{hour}:{min}:{seconds_left}---")
+            await new_message.edit_text(f"---Твой таймер стоит на ---\n---{hour}:{min}:{seconds_left}---")
             await asyncio.sleep(seconds_left)
             seconds_left = seconds_left - seconds_left
 
