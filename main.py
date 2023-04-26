@@ -26,22 +26,28 @@ async def new_timer_massage(message):
             raise ValueError()
         
     except (TypeError, ValueError):
-        await bot.send_message(channel_id, text="Введите кол-во секунд")
+        await bot.send_message(channel_id, text="---Введите кол-во секунд---")
 
-    new_message = await bot.send_message(channel_id, text=f"Your timer is at: {timer_seconds}")
+    new_message = await bot.send_message(channel_id, text=f"-+-Твой таймер на: {timer_seconds}s-+-")
 
     for seconds_left in range(timer_seconds -10, -10, -10):
         await asyncio.sleep(10)
+
+        if seconds_left < 10:
+            await new_message.edit_text(f"---Твой таймер стоит на :---\n---{hour}:{min}:{seconds_left}---")
+            await asyncio.sleep(seconds_left)
+            seconds_left = seconds_left - seconds_left
+
         seconds_left = seconds_left % (24 * 3600) 
         hour = seconds_left // 3600 
         seconds_left %= 3600 
         min = seconds_left // 60 
         seconds_left %= 60
 
-        await new_message.edit_text(f"Your timer is at:{hour}h {min}m {seconds_left}s")
+        await new_message.edit_text(f"---Твой таймер стоит на :---\n---{hour}:{min}:{seconds_left}---")
+        
 
 
- 
 
 if __name__ == '__main__':
     executor.start_polling(bot_dispatcher)
